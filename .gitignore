@@ -1,3 +1,4 @@
 *.log
 config/initializers/site_keys.rb
 config/enviroments/development.rb
+app/models/user_mailer.rb
