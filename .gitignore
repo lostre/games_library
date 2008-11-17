@@ -1,0 +1,3 @@
+*.log
+config/initializers/site_keys.rb
+config/enviroments/development.rb
