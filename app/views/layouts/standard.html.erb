@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>:: /lib/Games/Releases/ ::</title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= stylesheet_link_tag 'pagination' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+ <div id="wrap">
+ 	<div id="top">
+		<div id="gametitle">
+			<a href="/">/lib/Game/Releases/</a>
+		</div>
+		<div id="gamedesc">Game Database...</div>
+	</div>
+	<div id="leftside" class="left">
+
+	 <%= yield  %>
+	</div>
+	<div id="rightside" class="right">
+	 <ul>
+	 	<li>
+	 		<h2>Login</h2>
+	 		<ul id="user">
+				<%= render :partial => "users/user_bar" %>
+			</ul>
+ 		</li> 
+	 	<li>
+	 		<h2>Latest Games</h2>
+	 		<ul id="latest_games">
+	 			<% Game.recent.each do |r| %>
+	 			<li>
+	 				<%= link_to r.name, r, { :title => r.name } %> (<%= r.release_date.to_formatted_s(:rfc822) %>)
+	 			</li>
+	 			<% end %>
+	 		</ul>
+	 	</li>
+		<li>
+			<h2>Search</h2>
+			<% form_tag games_path, :method => 'get' do %>
+			<div>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil, :class => "search" %>
+			</div>
+			<% end %>
+		</li>
+		<li><h2>Categories</h2>
+   		<ul id="categories">
+			<li>
+				<%= link_to 'All', games_path %> <%= "(#{Game.count})" -%>
+			</li>
+			<% Category.find(:all, :order => "name ASC").each do |c| %>
+			<li>
+			<%= link_to c.name, :action => "category", :id => c.id %><%= "(#{c.games.count})" -%>
+			</li>
+		<% end %>
+		</ul>
+  		</li>
+  		<% if logged_in? && current_user.is_admin? %>
+			<li><h2>Admin Menu</h2>
+			<ul id="sidebar">
+				<li>				
+					<%= link_to 'Add Game', new_game_path %>
+				</li>
+				<li>
+					<%= link_to 'Manage Categories', categories_path %>
+				</li>
+			</ul>
+			</li>
+		<% end -%>		
+		</ul>
+	</div>
+	<div id="footer">
+	Powered by <b><a href="http://www.rubyonrails.org">Ruby On Rails</a></b>
+	</div>
+ </div>
+</body>
+</html>

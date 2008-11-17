@@ -1,0 +1,11 @@
+<div class="video">
+	<% new_or_existing = video.new_record? ? 'new' : 'existing' %>
+	<% prefix = "game[#{new_or_existing}_video_attributes][]" %>
+	
+	<% fields_for prefix, video do |video_form| -%>
+		<p>
+			Title : <%= video_form.text_field :title %>	Video URL: <%= video_form.text_field :video_url %>
+			<%= link_to_function "Remove", "$(this).up('.video').remove()" %>
+		</p>
+	<% end -%>
+</div>

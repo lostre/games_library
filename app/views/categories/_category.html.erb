@@ -1,0 +1,7 @@
+<li id="category_<%= category.id -%>">
+	<%= category.name -%>&nbsp;(<%= category.games.count -%>)
+</li>
+<li id="category_<%= category.id %>_options">
+<%= link_to "Edit", edit_category_path(category) %> - 
+<%= link_to 'Destroy', category, :title => "Destroy", :confirm => 'Are you sure?', :method => :delete %>
+</li>

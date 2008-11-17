@@ -1,0 +1,260 @@
+body {
+background:#000000 none repeat scroll 0 0;
+color:#CCCCCC;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-size:10px;
+margin:0;
+}
+#wrap {
+background:#302f30 none repeat scroll 0 0;
+border-left:1px solid #ADB102;
+border-right:1px solid #ADB102;
+margin:0 auto;
+padding:0;
+width:850px;
+}
+#top {
+background:#ADB102;
+clear:both;
+height:135px;
+margin:0 auto;
+padding:0;
+}
+a:link {
+border:medium none;
+color:#ADB102;
+text-decoration:none;
+}
+a:active {
+border:medium none;
+color:#ADB102;
+text-decoration:none;
+}
+a:visited {
+border:medium none;
+color:#ADB102;
+text-decoration:none;
+}
+a:hover {
+border:medium none;
+color:#555353;
+text-decoration:none;
+}
+#gametitle {
+color:#1D2224;
+font-family:Georgia,"Times New Roman",Times,serif;
+font-size:36px;
+line-height:100%;
+margin:0;
+padding-left:470px;
+padding-top:40px;
+text-align:left;
+}
+#gametitle a:link {
+border:medium none;
+color:#1D2224;
+text-decoration:none;
+}
+#gametitle a:active {
+border:medium none;
+color:#1D2224;
+text-decoration:none;
+}
+#gametitle a:visited {
+border:medium none;
+color:#1D2224;
+text-decoration:none;
+}
+#gametitle a:hover {
+border:medium none;
+color:#555353;
+cursor:crosshair;
+text-decoration:none;
+}
+#gamedesc {
+color:#1D2224;
+float:left;
+font-size:12px;
+margin:0;
+padding-left:475px;
+padding-top:5px;
+text-align:left;
+}
+#search {
+width:120px;
+}
+.centertext {
+text-align:center;
+}
+.lefttext {
+text-align:left;
+}
+.righttext {
+text-align:right;
+}
+#rightside {
+
+}
+.right {
+float:right;
+margin:0 0 10px 3px;
+padding:10px;
+width:200px;
+}
+.right h2 {
+border-bottom:1px dashed #CCCCCC;
+font-size:14px;
+margin:0 7px 3px;
+padding:3px 0;
+}
+.right ul {
+list-style-type:none;
+margin:0;
+padding:0;
+}
+.right ul li {
+list-style-type:none;
+margin:0 0 20px;
+padding:0;
+}
+.right ul li ul {
+list-style-type:square;
+margin:0;
+padding:0 3px;
+}
+.right ul li ul li {
+background:transparent;
+border:0 none;
+list-style-type:none;
+margin:0;
+padding:0 0 2px 14px;
+}
+#leftside {
+
+}
+.left {
+float:left;
+line-height:16px;
+margin:0 0 10px 3px;
+overflow:hidden;
+padding:10px;
+width:600px;
+}
+.left h2 {
+border-bottom:1px dashed #CCCCCC;
+font-size:16px;
+margin:0 7px 3px 0;
+padding:3px 0;
+text-align:center;
+}
+.left h3 {
+border-bottom:1px dashed #CCCCCC;
+margin:0 7px 3px 0;
+padding:3px 0;
+text-align:center;
+}
+.videos {
+border:1px dashed #ADB102;
+}
+.left img {
+border:2px solid #000000;
+}
+img.wp-smiley {
+border:0 none;
+}
+.navigation {
+display:block;
+margin-bottom:60px;
+margin-top:10px;
+text-align:center;
+}
+.alignright {
+float:right;
+}
+.alignleft {
+float:left;
+}
+.postmetadata {
+background:#464C4F none repeat scroll 0 0;
+border-bottom:1px solid #666666;
+border-top:1px solid #666666;
+font-size:10px;
+padding:5px;
+}
+blockquote {
+border-left:5px solid #DDDDDD;
+margin:15px 30px 0 10px;
+padding-left:20px;
+}
+blockquote cite {
+display:block;
+margin:5px 0 0;
+}
+input#search {
+background:#999999 none repeat scroll 0 0;
+border:2px solid #333333;
+color:#FFFFFF;
+font-size:13px;
+}
+input#game_submit {
+background:#999999 none repeat scroll 0 0;
+border:2px solid #333333;
+color:#FFFFFF;
+font-size:13px;
+}
+.search {
+background:#FCFCFC none repeat scroll 0 0;
+border:1px solid #CBCBCB;
+color:#666666;
+margin-bottom:0.6em;
+margin-top:2px;
+padding:1px;
+}
+textarea {
+background:#FCFCFC none repeat scroll 0 0;
+border:1px solid #CBCBCB;
+color:#666666;
+margin-bottom:0.6em;
+margin-top:2px;
+padding:3px;
+width:60%;
+}
+input#url {
+background:#FCFCFC none repeat scroll 0 0;
+border:1px solid #CBCBCB;
+color:#666666;
+margin-bottom:0.6em;
+margin-top:2px;
+padding:3px;
+width:50%;
+}
+input#game_name, #game_link {
+background:#FCFCFC none repeat scroll 0 0;
+border:1px solid #CBCBCB;
+color:#666666;
+margin-bottom:0.6em;
+margin-top:2px;
+padding:3px;
+width:30%;
+}
+input#game_size {
+background:#FCFCFC none repeat scroll 0 0;
+border:1px solid #CBCBCB;
+color:#666666;
+margin-bottom:0.6em;
+margin-top:2px;
+padding:3px;
+width:25%;
+}
+#footer {
+background:#1D2224 none repeat scroll 0 0;
+border-top:1px solid #ADB102;
+border-bottom:1px solid #ADB102;
+clear:both;
+color:#FFFFFF;
+font-size:11px;
+height:25px;
+margin-top:0;
+padding:0;
+text-align:center;
+}

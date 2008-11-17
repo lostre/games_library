@@ -1,0 +1,62 @@
+<h2><%= @game.name %></h2>
+<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: red"><%= flash[:error] %></p>
+<table width="600" border="0" cellspacing="0" cellpadding="1">
+  <tr>
+  	<td width="50%"><%= image_tag @game.image.url(:medium) %></td>
+    <td>
+	 <div class="lefttext">
+		<p><b>Category</b>: <%= @game.category.name %></p>
+		<p><b>Release Date</b>: <%= tba_when_blank(@game.release_date) %></p>
+        <p><b>Available</b>: <%= check_availability(@game.available) %></p>
+        <p><b>File Size</b>: <%= na_when_blank(@game.size) %></p>
+        <p><b>Official Site</b>: <%= link_to(na_when_blank(@game.link), @game.link) %></p>
+	 </div>
+    </td>
+  </tr>
+  <tr>
+  	<td colspan="2"><h3><b>Videos</b></h3></td>
+  </tr>
+  <tr>
+  	<td colspan="2" align="center">
+  		<% if @game.videos.empty? -%>
+			None Available
+		<% else -%> 
+			<% for @video in @game.videos %>
+				<h4><%= @video.title %></h4>
+				<%= display_video(@video) %>
+			<% end -%>
+		<% end -%>
+  	</td>
+  </tr> 
+  <tr>
+  	<td colspan="2">&nbsp;</td>
+  </tr>   
+  <tr>
+  	<td colspan="2"><h3><b>Requirements</b></h3></td>
+  </tr>
+  <tr>
+  	<td colspan="2"><b>Minimum</b></td>
+  </tr>
+  <tr>
+  	<td colspan="2">
+  		<%= na_when_blank(@game.minrequirement) %>
+  	</td>
+  </tr>
+  <tr>
+  	<td colspan="2"><b>Recommended</b></td>
+  </tr>
+  <tr>
+	<td colspan="2">
+		<%= na_when_blank(@game.recrequirement) %>
+	</td>
+  </tr>
+</table>
+<% if logged_in? && current_user.is_admin? %>
+<p class="navigation">
+	<< <%= link_to "Edit", edit_game_path(@game) %> - <%= link_to 'Destroy', @game, :confirm => 'Are you sure?', :method => :delete %> >>
+</p>
+<% else %>
+<p>&nbsp;</p>
+<% end %>
+<%= link_to 'Back', games_path %>

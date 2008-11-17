@@ -1,0 +1,27 @@
+<h2>Listing categories</h2>
+<br />
+<ul id="category_listing">
+<% for @category in @categories -%>
+	<li id="category_<%= @category.id -%>">
+		<%= @category.name -%>&nbsp;(<%= @category.games.count -%>)
+	</li>
+	<li id="category_<%= @category.id %>_options">
+	<%= link_to "Edit", edit_category_path(@category) %> - 
+	<%= link_to 'Destroy', @category, :title => "Destroy", :confirm => 'Are you sure?', :method => :delete %>
+	</li>
+<% end %>
+</ul>
+<p id="add_link"><%= link_to_function("Add a category",
+"Element.remove('add_link'); Element.show('add_category')")%></p>
+<div id="add_category" style="display:none;" class="add_cat">
+	<% form_remote_tag(:url => {:action => 'create'},
+    :update => "category_listing", :position => :bottom,
+    :html => {:id => 'category_form'}) do %>
+	
+	Name: <%= text_field "category", "name" %>
+	<%= submit_tag 'Add' %>&nbsp;<%= link_to_function "Cancel", "$(this).up('.add_cat').remove()" %>
+	<% end %>
+</div>
+<p class="navigation">
+	 <%= link_to "Back to Games", games_path %>
+</p>

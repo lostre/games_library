@@ -1,0 +1,6 @@
+<h2>Profile for <i style="text-transform:capitalize"><%= @user.login %></i></h2>
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p class="navigation">
+<< <%= link_to "Change Details", edit_user_path(@user) %> - <%= link_to 'Back', games_path %> >>
+</p>

@@ -1,0 +1,55 @@
+<%= error_messages_for :game %>
+
+<% form_for @game, :html => { :multipart => true } do |f| -%>
+	<p>
+		<%= f.label			:name %>:
+		<%= f.text_field	:name %>
+		<span>(Name of the game)</span>
+	</p>
+	<p>
+		<%= f.label				:category_id %>:
+		<%= f.collection_select :category_id, Category.all, :id, :name %>
+		<span>(Choose appropiate category for the game)</span>
+	</p>
+	<p>
+		<%= f.label			:link %>:
+		<%= f.text_field	:link %>
+		<span>(ex Official Website)</span>
+	</p>
+	<p>
+		<%= f.label			:size %>:
+		<%= f.text_field	:size %>
+		<span>(Add *GB* or *MB* at the end)</span>
+	</p>	
+	<p>
+		<%= f.label			:available %>:
+		<%= f.check_box :available, {}, "t", "f" %>
+		<span>(Check if game is available)</span>
+	</p>
+	
+	<p>
+		<%= f.label				:release_date %>:
+		<%= f.date_select(:release_date, :start_year => 2007, :include_blank => true, :order => [:day, :month, :year]) %>
+		<span>(Leave empty if unannounched)</span>
+	</p>
+	<p>
+		<%= f.label			:image %>:
+		<%= f.file_field	:image %>
+		<span>(Box/Cover image)</span>
+	</p>
+	<div id="videos">
+		<%= render :partial => 'video', :collection => @game.videos %>
+	</div>
+	<p>
+		<%= add_video_link "Add a video(YouTube,Vimeo)" %>
+	<p>
+		<%= f.label			"Minimum Requirements" %>:<br />
+		<%= f.text_area 	:minrequirement, :cols => 30, :rows => 13 %>
+	<p>
+	<p>
+		<%= f.label			"Recommended Requirements" %>:<br />
+		<%= f.text_area 	:recrequirement, :cols => 30, :rows => 13 %> 
+	<p>	
+		<%= f.submit "Submit" %>
+	</p>
+<% end %>	

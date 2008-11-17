@@ -1,0 +1,27 @@
+<h2><%= check_search_results(params[:search]) %></h2>
+<br />
+<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: red"><%= flash[:error] %></p>
+<table width="600px" cellpadding="3" cellspacing="0" border="0">
+<% @games.in_groups_of(4, false) do |games_row| %>
+	<tr valign="top">
+		<% for game in games_row %>
+		<td width="150px">
+			<p align="center">
+			<%= link_to image_tag(game.image.url(:small), :alt => game.name), game, :title => game.name %><br />
+			<%= link_to game.name, game, :title => game.name %>
+			</p>
+			<p align="center">
+				<% if logged_in? && current_user.is_admin? %>
+					<%= link_to "Edit", edit_game_path(game), :title => "Edit" %> -
+					<%= link_to 'Destroy', game, :title => "Destroy", :confirm => 'Are you sure?', :method => :delete %>
+				<% else %>
+					&nbsp;
+				<% end %>
+			</p>
+		</td>
+		<% end %>
+	</tr>
+<% end %>
+</table>
+<%= will_paginate @games %>

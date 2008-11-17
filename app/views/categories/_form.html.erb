@@ -1,0 +1,12 @@
+<%= error_messages_for :category %>
+
+<% form_for @category do |f| %>
+<p>
+	<%= f.label			:name %>:
+	<%= f.text_field	:name %>
+	<span>(Category name)</span>
+</p>
+<p>	
+	<%= f.submit "Submit" %>
+</p>
+<% end %>

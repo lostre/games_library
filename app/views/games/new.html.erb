@@ -1,0 +1,5 @@
+<h2>Add Game Details</h2>
+<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: red"><%= flash[:error] %></p>
+<%= render :partial => 'form', :object => @game %>
+<%= link_to 'Back', games_path %>
